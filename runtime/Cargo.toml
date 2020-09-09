@@ -10,6 +10,12 @@ version = '2.0.0-rc6'
 [package.metadata.docs.rs]
 targets = ['x86_64-unknown-linux-gnu']
 
+[dependencies.pallet-nicks]
+git = 'https://github.com/paritytech/substrate.git'
+default-features = false
+tag = 'v2.0.0-rc6'
+version = '2.0.0-rc6'
+
 [dependencies.codec]
 default-features = false
 features = ['derive']
@@ -181,6 +187,7 @@ std = [
     'pallet-timestamp/std',
     'pallet-transaction-payment/std',
     'pallet-transaction-payment-rpc-runtime-api/std',
+    'pallet-nicks/std',
     'serde',
     'sp-api/std',
     'sp-block-builder/std',
