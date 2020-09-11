@@ -264,6 +264,11 @@ impl template::Trait for Runtime {
 }
 
 
+impl test_pallet::Trait for Runtime {
+	type Event = Event;
+  }
+
+
 
 parameter_types! {
     // Choose a fee that incentivizes desireable behavior.
@@ -295,7 +300,8 @@ impl pallet_nicks::Trait for Runtime {
     type MaxLength = MaxNickLength;
 
     // The ubiquitous event type.
-    type Event = Event;
+	type Event = Event;
+	
 }
 
 // Create the runtime by composing the FRAME pallets that were previously configured.
@@ -305,6 +311,7 @@ construct_runtime!(
 		NodeBlock = opaque::Block,
 		UncheckedExtrinsic = UncheckedExtrinsic
 	{
+		TestPallet: test_pallet::{Module, Call, Storage, Event<T>},
 		Nicks: pallet_nicks::{Module, Call, Storage, Event<T>},
 		System: frame_system::{Module, Call, Config, Storage, Event<T>},
 		RandomnessCollectiveFlip: pallet_randomness_collective_flip::{Module, Call, Storage},
